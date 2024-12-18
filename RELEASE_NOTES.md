@@ -386,3 +386,9 @@ This release is composed of porting over bug fixes for bugs we carried over from
 #### Features
 
 - Support CORS on the cube export routes
+
+## v1.4.7
+
+#### Features
+
+- Support `note:"Perfect"` queries on the custom notes
