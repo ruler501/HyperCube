@@ -23,6 +23,7 @@ import {
   cardColorIdentity,
   cardType,
   cardOracleText,
+  cardNotes,
   cardSet,
   cardCollectorNumber,
   cardPower,
@@ -86,6 +87,7 @@ condition -> (
   | normalPriceCondition
   | notCondition
   | oracleCondition
+  | notesCondition
   | pickCountCondition
   | popularityCondition
   | powerCondition
@@ -118,6 +120,8 @@ colorIdentityCondition -> ("ci"i | "id"i | "identity"i | "coloridentity" | "colo
 typeCondition -> ("t"i |  "type"i | "type_line"i | "typeline"i) stringContainOpValue {% ([, valuePred]) => genericCondition('type_line', cardType, valuePred) %}
 
 oracleCondition -> ("o"i | "oracle"i | "text"i) nameStringOpValue {% ([, valuePred]) => genericCondition('oracle_text', cardOracleText, valuePred) %}
+
+notesCondition -> ("note"i | "notes"i) nameStringOpValue {% ([, valuePred]) => genericCondition('notes', cardNotes, valuePred) %}
 
 setCondition -> ("s"i | "set"i | "e"i | "edition"i) alphaNumericOpValue {% ([, valuePred]) => genericCondition('set', cardSet, valuePred) %}
 
